@@ -1,9 +1,12 @@
 NAME = shell
 
-SRC =	main.c export.c export2.c unset.c check_builtins.c signal.c termfunc.c readline.c arrows.c \
-		utils.c utils2.c utils3.c utils4.c utils5.c utils6.c utils7.c utils8.c parser_utils.c error.c \
-		history.c history2.c lexer.c token.c words.c metachar.c quotes.c envvar.c parser.c parser2.c \
-		buildin1.c buildin2.c execs.c pipes.c child.c
+SRC =	src/main.c src/export.c src/export2.c src/unset.c src/check_builtins.c \
+		src/signal.c src/termfunc.c src/readline.c src/arrows.c src/error.c \
+		src/history.c src/history2.c src/lexer.c src/token.c src/words.c \
+		src/metachar.c src/quotes.c src/envvar.c src/parser.c src/parser2.c \
+		src/buildin1.c src/buildin2.c src/execs.c src/pipes.c src/child.c \
+		utils/utils.c utils/utils2.c utils/utils3.c utils/utils4.c utils/utils5.c \
+		utils/utils6.c utils/utils7.c utils/utils8.c utils/parser_utils.c
 
 OBJ = $(SRC:.c=.o)
 

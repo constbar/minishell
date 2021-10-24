@@ -68,123 +68,121 @@ typedef struct s_cmd
 	char	**stopword;
 }				t_cmd;
 
-//termfunc
+// termfunc
 void			on_termcap(struct termios *term);
 void			off_termcap(struct termios *term);
 int				get_curs(void);
 
-//signal
+// signal
 void			handler(int sig);
 void			childhandler(int sig);
 void			ft_interrupt(t_history **history,
 					t_history **cur, char **line);
 
-//utils
+// utils
 size_t			ft_strlen(const char *str);
 char			*ft_strdup(const char *s);
 char			*ft_strjoin(const char *s1, char const *s2);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
 
-//utils2
+// utils2
 void			*ft_memset(void *str, int c, size_t n);
 int				ft_putchar(int c);
 int				ft_atoi(const char *str);
 char			*ft_strchr(const char *str, int c);
 int				ft_isprint(int c);
 
-//util3
+// utils3
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_ismetachar(int c);
 int				ft_isspace(int c);
 
-//util4
+// utils4
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 char			*ft_copy(char *dst, char *src);
 int				ft_tolower(int c);
 void			*safe_malloc(size_t size);
 char			*ft_itoa(int nbr);
 
-//util8
+// utils5
+int				first_app(char *str);
+int				str_is_digit(char *str);
+char			*ft_strtrim(char const *s1, char const *set);
+char			*ft_strnstr(const char *s1, const char *s2, size_t n);
+
+// utils6
+char			**ft_split(char const *s, char c);
+void			*ft_calloc(size_t n, size_t size);
+
+// utils7
+void			ft_bzero(void *s, size_t n);
+int				ft_strncmp(char *s1, char *s2, unsigned int n);
+char			*ft_strncpy(char *dest, char *src, unsigned int n);
+void			cpy_env(char **env);
+void			ft_putstr(char *s);
+
+// utils8
 int				ft_isredir(int c);
 
-//error
+// error
 int				ft_error(int st);
 int				parser_errors(t_token *token);
 
-//history
+// history
 void			free_history(t_history **history);
 //void 			burn_history(t_history **history);
 void			add_history(t_history **history, char *str);
 void			change_history(t_history **node, char *str);
 t_history		*first_history(t_history *node);
 
-//history2
+// history2
 int				history_size(t_history *history);
 
-//readline
+// readline
 void			read_line(t_history **history, int col,
 					struct termios *term);
 
-//arrows
+// arrows
 int				check_arrows(t_history **cur, char *buf, char **line, int col);
 
-//lexer
+// lexer
 t_token			*ft_lexer(t_parser *parser, int start);
 
-//token
+// token
 void			add_token(t_token **token, char *word, int type, int presep);
 void			free_token(t_token **token);
 void			burn_token(t_token **token);
 
-//words
+// words
 void			add_word(t_token **token, char **word, int type, int presep);
 void			reword(t_parser *parser, char **word, int start);
 
-//metachar
+// metachar
 int				check_del(char *buf, int col, char **line);
 int				metachar(t_parser *parser, char **word, t_token **token);
 
-//quotes
+// quotes
 int				ft_ispquotes(t_parser *parser);
 int				double_quote(t_parser *parser, char **word, t_token **token);
 int				simple_quote(t_parser *parser, char **word);
 
-//envvar
+// envvar
 void			env_variable(t_parser *parser, t_token **token, char **word);
 
-//parser
+// parser
 t_cmd			**master_work(t_token **token);
 
-//parser2
+// parser2
 void			volcano(t_token *token, t_cmd **master);
 
-//parser_utils
+// parser_utils
 int				nbrtype(t_token *token, int count, int sep);
 t_cmd			**malloc_master(t_token *token);
 t_cmd			*malloc_cmd(void);
 void			free_master(t_cmd ***master);
-
-// kostya
-
-// utils 5
-int				first_app(char *str);
-int				str_is_digit(char *str);
-char			*ft_strtrim(char const *s1, char const *set);
-char			*ft_strnstr(const char *s1, const char *s2, size_t n);
-
-// utils 6
-char			**ft_split(char const *s, char c);
-void			*ft_calloc(size_t n, size_t size);
-
-// utils 7
-void			ft_bzero(void *s, size_t n);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
-char			*ft_strncpy(char *dest, char *src, unsigned int n);
-void			cpy_env(char **env);
-void			ft_putstr(char *s);
 
 void			execute_master(t_cmd **master, int i);
 void			redir_handler(t_cmd *master);
