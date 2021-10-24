@@ -19,7 +19,7 @@ make
 - `'`, `"` and separate commands with `;` work the same as in bash
 - signal management. `ctrl + c`, `ctrl + \` and `ctrl + d` work like in bash
 - implementation of some builtins: `echo`, `cd`, `exit`, `pwd`, `export`, `unset`, `env`
-- navigation through command history using up ↑ and down ↓ arrows. implemented with termcaps
+- navigation through command history using up `↑` and down `↓` arrows. implemented with termcaps
 - environment variables are handled, like `$HOME`, including the return code `$?` after command execution
 
 ### development team
