@@ -1,10 +1,10 @@
 ## minishell
 
-team project of 42 school where it is necessary to implement own version of shell from scratch in C.
+team project of École 42 where it is necessary to implement own version of shell from scratch in C.
 
 the program can parse a prompt and run executables with arguments. implemented several built-in functions, environment variables, pipes and redirects.
 
-the project was made in accordance with the school design code standard in the C language.
+the project was made in accordance with the school design code standard in C language.
 
 ![](shell.gif)
 
